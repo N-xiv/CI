@@ -25,6 +25,7 @@ jobs:
            bash initialize
         - name: Starting build
           run: |
+           git config remote.origin.url 'https://${{ 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 }}@github.com/${{ kernel_xiaomi_sm6150 }}'
            git clone --depth=1 https://github.com/SoniC-XIV/kernel_xiaomi_sm6150 -b 13-KSU SONIC
            cp test.sh SONIC && cd SONIC
            chmod +x test.sh && bash test.sh
