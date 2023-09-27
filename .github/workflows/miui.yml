@@ -25,6 +25,6 @@ jobs:
            bash initialize
         - name: Starting build
           run: |
-           git clone --depth=1 https://github.com/SoniC-XIV/Xiaomi_Kernel_OpenSource -b sweet-r-oss SONIC
+           git clone --depth=1 https://github.com/SoniC-XIV/Xiaomi_Kernel_OpenSource -b project SONIC
            cp miui.sh SONIC && cd SONIC
            chmod +x miui.sh && bash miui.sh
