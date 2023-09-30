@@ -1,4 +1,4 @@
-name: MIUI-PERF
+name: MIUI-PERF+
 
 on: # [push]
   workflow_dispatch:
