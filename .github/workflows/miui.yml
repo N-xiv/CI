@@ -25,6 +25,6 @@ jobs:
            bash initialize
         - name: Starting build
           run: |
-           git clone --depth=1 https://github.com/SoniC-XIV/Xiaomi_Kernel_Sweet -b sleepy-perf SONIC
+           git clone --depth=1 https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sweet -b arrow-13.1 SONIC
            cp miui.sh SONIC && cd SONIC
            chmod +x miui.sh && bash miui.sh
