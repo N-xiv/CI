@@ -17,7 +17,7 @@ ClangPath=${MainClangZipPath}
 [[ "$(pwd)" != "${MainPath}" ]] && cd "${MainPath}"
 mkdir $ClangPath
 rm -rf $ClangPath/*
-git clone --depth=1 https://gitlab.com/PixelOS-Devices/playgroundtc.git -b 15 $ClangPath
+git clone --depth=1 https://gitlab.com/PixelOS-Devices/playgroundtc.git -b 17 $ClangPath
 
 mkdir $GCCaPath
 mkdir $GCCbPath
@@ -32,12 +32,12 @@ DEVICE_DEFCONFIG=sweet_defconfig
 export KERNEL_NAME=$(cat "arch/arm64/configs/$DEVICE_DEFCONFIG" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
 export KBUILD_BUILD_USER=Lek_N-XIV
 export KBUILD_BUILD_HOST=ExSoniC
-IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz
+IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 CLANG_VER="$("$ClangPath"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')"
 LLD_VER="$("$ClangPath"/bin/ld.lld --version | head -n 1)"
 export KBUILD_COMPILER_STRING="$CLANG_VER with $LLD_VER"
 DATE=$(date +"%F-%S")
-VER=MIUI-V2
+VER=TEST-PERF
 START=$(date +"%s")
 PATH=${ClangPath}/bin:${GCCaPath}/bin:${GCCbPath}/bin:${PATH}
 DTBO=$(pwd)/out/arch/arm64/boot/dtbo.img
