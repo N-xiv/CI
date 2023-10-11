@@ -25,6 +25,6 @@ jobs:
            bash initialize
         - name: Starting build
           run: |
-           git clone --depth=1 https://github.com/SoniC-XIV/kernel_xiaomi_sm6150 -b Perf SONIC
+           git clone --depth=1 https://github.com/SoniC-XIV/kernel_xiaomi_sm6150 -b Perf-CAF SONIC
            cp miui.sh SONIC && cd SONIC
            chmod +x miui.sh && bash miui.sh
