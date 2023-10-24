@@ -28,11 +28,11 @@ git clone --depth=1 https://android.googlesource.com/platform/prebuilts/gcc/linu
 export TZ="Asia/Jakarta"
 KERNEL_ROOTDIR=$(pwd) # IMPORTANT ! Fill with your kernel source root directory.
 DEVICE_CODENAME=SWEET
-DEVICE_DEFCONFIG=sweet_user_defconfig
+DEVICE_DEFCONFIG=sweet_defconfig
 export KERNEL_NAME=$(cat "arch/arm64/configs/$DEVICE_DEFCONFIG" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
 export KBUILD_BUILD_USER=Lek_N-XIV
 export KBUILD_BUILD_HOST=ExSoniC
-IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
+IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz
 CLANG_VER="$("$ClangPath"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')"
 LLD_VER="$("$ClangPath"/bin/ld.lld --version | head -n 1)"
 export KBUILD_COMPILER_STRING="$CLANG_VER with $LLD_VER"
@@ -79,8 +79,8 @@ make -j$(nproc) ARCH=arm64 O=out \
    fi
   git clone --depth=1 https://github.com/SoniC-XIV/Anykernel3 -b master AnyKernel
 	    cp $IMAGE AnyKernel
-        cp $DTBO AnyKernel
-        cp $DTB AnyKernel
+        #cp $DTBO AnyKernel
+        #cp $DTB AnyKernel
 }
 # Push kernel to channel
 function push() {
